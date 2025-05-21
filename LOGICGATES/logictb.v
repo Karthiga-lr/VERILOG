@@ -1,4 +1,3 @@
-
 module basicgate_tb();
   reg a_tb,b_tb;
   wire  cand_tb,cor_tb,cnot_tb,cnand_tb,cnor_tb,cxor_tb,c_xnor_tb;
