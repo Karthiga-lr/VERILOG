@@ -4,7 +4,7 @@ module siso(si,clk,rst,so);
   reg [3:0] temp;
   always@(posedge clk)begin
     if (rst==1)begin
-      temp=4'b0;
+      temp=4'd0;
   end
   else begin
     temp=temp>>1;
