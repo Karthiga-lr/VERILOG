@@ -1,8 +1,9 @@
 module sequedetec_1010(input clk, rst, in, output reg out);
   parameter s0 = 2'd0, s1 = 2'd1, s10 = 2'd2, s101 = 2'd3;
+
   reg [1:0] state, next_state;
   always @(posedge clk) begin
-    if (rst==0)
+    if (rst == 0)
       state <= s0;
     else
       state <= next_state;
@@ -24,7 +25,16 @@ module sequedetec_1010(input clk, rst, in, output reg out);
       next_state = s0;
     end
   end
-  
-  assign out=(state == s101 && in == 0)?1:0
+
+  always @(posedge clk) begin
+    if (rst == 0)
+      out <= 0;
+    else if (state == s101 && in == 0)
+      out <= 1;
+    else
+      out <= 0;
+  end
 
 endmodule
+
+
